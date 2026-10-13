@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Warming Awareness - Act Now</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #c62828;
+            --secondary: #ef6c00;
+            --accent: #ffb300;
+            --light: #fff8f0;
+            --dark: #8d2f14;
+            --text: #333333;
+            --white: #ffffff;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(to right, #b71c1c, #e65100);
+            color: var(--white);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .logo i {
+            font-size: 1.8rem;
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 1.8rem;
+        }
+
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(rgba(60, 10, 5, 0.65), rgba(30, 10, 5, 0.55)), url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=2073&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 75vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.55);
+        }
+
+        .hero h1 span {
+            color: #ffb74d;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: #4e2600;
+            padding: 0.8rem 2.2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.18);
+        }
+
+        .btn:hover {
+            background-color: var(--white);
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* Sections */
+        section {
+            padding: 4.5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2.8rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 4px;
+            background: linear-gradient(to right, var(--secondary), var(--accent));
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        /* Stats */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.8rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 2rem 1rem;
+            background-color: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(120, 30, 10, 0.08);
+            border-top: 4px solid var(--secondary);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-8px);
+        }
+
+        .stat-item i {
+            font-size: 2.2rem;
+            color: var(--secondary);
+            margin-bottom: 0.8rem;
+        }
+
+        .stat-item h3 {
+            font-size: 2rem;
+            color: var(--dark);
+            margin-bottom: 0.4rem;
+        }
+
+        .stat-item p {
+            color: #666;
+            font-size: 0.92rem;
+        }
+
+        /* Impacts */
+        .impacts {
+            background-color: var(--white);
+        }
+
+        .impacts-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.8rem;
+        }
+
+        .impact-card {
+            text-align: center;
+            background: var(--light);
+            border-radius: 10px;
+            padding: 2rem 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .impact-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .impact-card i {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.7rem;
+            color: var(--white);
+            background: linear-gradient(135deg, #ef5350, #e65100);
+            margin-bottom: 1.1rem;
+        }
+
+        .impact-card h3 {
+            font-size: 1.15rem;
+            color: var(--dark);
+            margin-bottom: 0.6rem;
+        }
+
+        .impact-card p {
+            font-size: 0.93rem;
+            color: #555;
+        }
+
+        /* Action tips */
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .tip {
+            background: var(--white);
+            border: 1px solid #f0e3d6;
+            border-radius: 10px;
+            padding: 1.5rem 1.2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .tip:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+        }
+
+        .tip i {
+            font-size: 1.8rem;
+            color: var(--secondary);
+            margin-bottom: 0.7rem;
+        }
+
+        .tip h4 {
+            color: var(--dark);
+            margin-bottom: 0.3rem;
+        }
+
+        .tip p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* CTA */
+        .cta {
+            background: linear-gradient(135deg, #b71c1c, #e65100 55%, #f9a825);
+            color: var(--white);
+            text-align: center;
+            padding: 4.5rem 0;
+        }
+
+        .cta h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta p {
+            font-size: 1.1rem;
+            max-width: 650px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta .btn {
+            background-color: var(--white);
+            color: var(--primary);
+            font-size: 1.05rem;
+        }
+
+        .cta .btn:hover {
+            background-color: var(--accent);
+            color: #4e2600;
+        }
+
+        .pledge-msg {
+            display: none;
+            margin-top: 1.4rem;
+            font-size: 1.02rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1f1a17;
+            color: #b8b0aa;
+            text-align: center;
+            padding: 2rem 0;
+            font-size: 0.9rem;
+        }
+
+        footer .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+        }
+
+        footer .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        footer .social-links a:hover {
+            background-color: var(--accent);
+            color: #4e2600;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1.05rem;
+            }
+
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #b71c1c;
+                flex-direction: column;
+                padding: 1rem 0;
+                text-align: center;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            nav ul li {
+                margin: 0;
+                padding: 0.8rem 0;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .stats,
+            .impacts-grid,
+            .tips-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container nav-container">
+            <div class="logo">
+                <i class="fas fa-fire-flame-curved"></i>
+                <span>Climate Bell</span>
+            </div>
+            <nav>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#facts">The Facts</a></li>
+                    <li><a href="#impacts">Impacts</a></li>
+                    <li><a href="#act">Act Now</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h1>Our Planet Is <span>Warming</span></h1>
+            <p>The Earth is now about 1.1&deg;C hotter than in pre-industrial times. Glaciers are melting, seas are rising, and extreme weather is escalating. The time to act is now.</p>
+            <a href="#act" class="btn">Take Action</a>
+        </div>
+    </section>
+
+    <!-- The Facts -->
+    <section id="facts">
+        <div class="container">
+            <div class="section-title">
+                <h2>The Facts</h2>
+                <p>Human activities — mainly burning fossil fuels — are heating the planet at a pace never seen before.</p>
+            </div>
+            <div class="stats">
+                <div class="stat-item">
+                    <i class="fas fa-temperature-arrow-up"></i>
+                    <h3 class="counter" data-target="1.1" data-decimals="1" data-prefix="+" data-suffix="&deg;C">0</h3>
+                    <p>Global warming since the industrial era</p>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-smog"></i>
+                    <h3 class="counter" data-target="421" data-suffix=" ppm">0</h3>
+                    <p>Atmospheric CO2 - highest in 800,000 years</p>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-water"></i>
+                    <h3 class="counter" data-target="3.7" data-decimals="1" data-suffix=" mm">0</h3>
+                    <p>Sea level rise per year</p>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-snowflake"></i>
+                    <h3 class="counter" data-target="13" data-prefix="-" data-suffix="%">0</h3>
+                    <p>Arctic sea ice lost per decade</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impacts -->
+    <section class="impacts" id="impacts">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why It Matters</h2>
+                <p>Global warming is not a distant threat - its effects are already here.</p>
+            </div>
+            <div class="impacts-grid">
+                <div class="impact-card">
+                    <i class="fas fa-temperature-high"></i>
+                    <h3>Extreme Heat</h3>
+                    <p>Heatwaves are more frequent and intense, threatening health, crops and power grids.</p>
+                </div>
+                <div class="impact-card">
+                    <i class="fas fa-house-tsunami"></i>
+                    <h3>Rising Seas</h3>
+                    <p>Melting ice sheets raise sea levels, putting coastal cities and island nations at risk.</p>
+                </div>
+                <div class="impact-card">
+                    <i class="fas fa-paw"></i>
+                    <h3>Species Loss</h3>
+                    <p>Shifting climates destroy habitats - around 1 million species face extinction.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Act Now -->
+    <section id="act">
+        <div class="container">
+            <div class="section-title">
+                <h2>What You Can Do</h2>
+                <p>Small everyday choices add up. Every kilowatt-hour saved cuts about 0.8 kg of CO2.</p>
+            </div>
+            <div class="tips-grid">
+                <div class="tip">
+                    <i class="fas fa-bus"></i>
+                    <h4>Travel Green</h4>
+                    <p>Walk, cycle or take public transport whenever you can.</p>
+                </div>
+                <div class="tip">
+                    <i class="fas fa-lightbulb"></i>
+                    <h4>Save Energy</h4>
+                    <p>Switch off lights, unplug devices, choose efficient appliances.</p>
+                </div>
+                <div class="tip">
+                    <i class="fas fa-recycle"></i>
+                    <h4>Reduce &amp; Recycle</h4>
+                    <p>Cut single-use plastics and sort your waste properly.</p>
+                </div>
+                <div class="tip">
+                    <i class="fas fa-bullhorn"></i>
+                    <h4>Spread the Word</h4>
+                    <p>Share what you know and inspire others to join in.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta" id="join">
+        <div class="container">
+            <h2>Be a Planet Cooler</h2>
+            <p>Together, our everyday actions can change the climate story. Start with one promise today.</p>
+            <a href="#" class="btn" id="pledgeBtn">I Pledge to Act</a>
+            <div class="pledge-msg" id="pledgeMsg">&#127881; Thank you! Start small, start now - and bring others along.</div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p>&copy; 2025 Climate Bell - A public awareness page on global warming. Data: IPCC / NASA / WMO.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu
+        document.querySelector('.mobile-menu').addEventListener('click', function () {
+            document.querySelector('nav ul').classList.toggle('active');
+        });
+
+        // Animated counters
+        function animateCounter(counter) {
+            const target = parseFloat(counter.dataset.target);
+            const decimals = parseInt(counter.dataset.decimals || 0, 10);
+            const prefix = counter.dataset.prefix || '';
+            const suffix = counter.dataset.suffix || '';
+            const duration = 1500;
+            const start = performance.now();
+
+            function tick(now) {
+                const p = Math.min((now - start) / duration, 1);
+                const eased = 1 - Math.pow(1 - p, 3);
+                counter.innerHTML = prefix + (target * eased).toFixed(decimals) + suffix;
+                if (p < 1) requestAnimationFrame(tick);
+            }
+            requestAnimationFrame(tick);
+        }
+
+        const obs = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+                if (e.isIntersecting) {
+                    animateCounter(e.target);
+                    obs.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.4 });
+        document.querySelectorAll('.counter').forEach(function (c) { obs.observe(c); });
+
+        // Pledge button
+        document.getElementById('pledgeBtn').addEventListener('click', function (e) {
+            e.preventDefault();
+            this.textContent = 'Thank You for Pledging!';
+            document.getElementById('pledgeMsg').style.display = 'block';
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    e.preventDefault();
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                    document.querySelector('nav ul').classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
